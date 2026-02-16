@@ -52,7 +52,7 @@ module tb_data_proc();
         
         #20 rstn = 1;
         
-        // --- MODE 00: BYPASS ---
+        // MODE 00: BYPASS
         mode = 2'b00;
         output_count = 0;
         for (i = 0; i < 1024; i = i + 1) begin
@@ -63,7 +63,7 @@ module tb_data_proc();
         valid_in = 1'b0;
         #3000;
         
-        // --- MODE 01: INVERT ---
+        // MODE 01: INVERT 
         mode = 2'b01;
         output_count = 0;
         for (i = 0; i < 1024; i = i + 1) begin
