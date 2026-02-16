@@ -12,7 +12,7 @@ module tb_data_proc();
     
     reg [1:0] mode_select;
 
-    // 1. Data Producer Instance
+    // Data Producer Instance
     data_producer #(.IMAGE_SIZE(1024)) producer_inst (
         .sensor_clk(clk),
         .rst_n(rstn),
@@ -21,7 +21,7 @@ module tb_data_proc();
         .valid(raw_valid)
     );
 
-    // 2. Data Processing Instance
+    // Data Processing Instance
     data_proc processor_inst (
         .clk(clk),
         .rstn(rstn),
@@ -33,10 +33,10 @@ module tb_data_proc();
         .ready_out(proc_ready)
     );
 
-    // 3. Clock Generation (10ns period)
+    // Clock Generation (10ns period)
     always #5 clk = ~clk;
 
-    // 4. Multi-Mode Test Sequence
+    // Multi-Mode Test Sequence
     initial begin
         clk = 0;
         rstn = 0;
@@ -44,15 +44,15 @@ module tb_data_proc();
 
         #20 rstn = 1;
         
-        // --- MODE 00: BYPASS 
+        // MODE 00: BYPASS 
         mode_select = 2'b00;
         #11000; 
 
-        // --- MODE 01: INVERT 
+        // MODE 01: INVERT 
         mode_select = 2'b01;
         #11000;
 
-        // --- MODE 10: CONVOLUTION (Test for remaining image)
+        // MODE 10: CONVOLUTION
         mode_select = 2'b10;
         #11000; 
 
