@@ -44,15 +44,15 @@ module tb_data_proc();
 
         #20 rstn = 1;
         
-        // --- MODE 00: BYPASS (Test for ~100 pixels) ---
+        // --- MODE 00: BYPASS 
         mode_select = 2'b00;
         #11000; 
 
-        // --- MODE 01: INVERT (Test for ~100 pixels) ---
+        // --- MODE 01: INVERT 
         mode_select = 2'b01;
         #11000;
 
-        // --- MODE 10: CONVOLUTION (Test for remaining image) ---
+        // --- MODE 10: CONVOLUTION (Test for remaining image)
         mode_select = 2'b10;
         #11000; 
 
